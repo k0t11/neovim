@@ -1,0 +1,39 @@
+" auto-install vim-plug
+if empty(glob('/appdata/local/nvim/init.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  "autocmd VimEnter * PlugInstall
+  "autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+
+call plug#begin()
+
+    " Better Syntax Support
+    Plug 'sheerun/vim-polyglot'
+    " File Explorer
+    Plug 'scrooloose/NERDTree'
+    " Auto pairs for '(' '[' '{'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'tpope/vim-fireplace'
+    Plug 'morhetz/gruvbox'
+    Plug 'vim-utils/vim-man'
+    Plug 'git@github.com:Valloric/YouCompleteMe.git'
+    Plug 'mbbill/undotree'
+    Plug 'rktjmp/lush.nvim'
+    Plug 'ellisonleao/gruvbox.nvim'
+ 
+call plug#end()
+
+set number relativenumber
+set nu rnu
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+colorscheme gruvbox
+set background=dark
+nnoremap <leader>r :%s/\<foo\>/bar/gc
+set number
+imap kj <Esc>
+nnoremap <C-f> :NERDTreeFind<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
